@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <link rel="stylesheet" href="resources/dijit/themes/claro/claro.css" >
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script> dojoConfig = {parseOnLoad: true}</script>
+    <script src='resources/dojo/dojo.js'></script>
+    <title>Авторизация</title>
+</head>
+<body class="claro">
+<div class="content">
+<div class="form_cont igm">
+<div th:if="${param.error}">
+    Invalid username and password.
+</div>
+<div th:if="${param.logout}">
+    You have been logged out.
+</div>
+<form th:action="@{/login}" method="post">
+    <center><div><label> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspUser : <input type="text" data-dojo-type="dijit/form/TextBox" name="username"/> </label></div>
+    <div><label>Password : <input type="password" data-dojo-type="dijit/form/TextBox" name="password"/> </label></div>
+    <div> <button type="submit" data-dojo-type="dijit/form/Button" value="Отправить" th:text="Отправить"/></div>
+    </center>
+
+</form>
+</div>
+</div>
+</body>
+</html>

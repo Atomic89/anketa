@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="resources/dijit/themes/claro/claro.css" >
+	<script> dojoConfig = {parseOnLoad: true}</script>
+	<script src='resources/dojo/dojo.js'></script>
+
+	<link rel="stylesheet" href="resources/css/style.css">
+	<link rel="stylesheet" href="resources/css/bootstrap.min.css">
+	<script src="resources/js/bootstrap.min.js"></script>
+
+	<title>change</title>
+</head>
+
+<body class="claro">
+<div class="content">
+
+<script>
+
+    dojo.require("dijit.form.Button");
+    dojo.require("dijit.form.TextBox");
+    dojo.require("dijit.form.CheckBox");
+
+</script>
+	<script>
+
+
+        require(["dijit/form/Select",
+            "dojo/data/ObjectStore",
+            "dojo/store/Memory",
+            "dojo/domReady!"
+        ], function(Select, ObjectStore, Memory){
+
+            var store = new Memory({
+                data: [
+                    { id: "1", label: "Добавить" },
+                    { id: "2", label: "Изменить" },
+                    { id: "3", label: "Удалить" }
+                ]
+            });
+
+            var os = new ObjectStore({ objectStore: store });
+
+            var s = new Select({
+                store: os
+            }, "target");
+            s.startup();
+
+            s.on("change", function(){
+
+				if(this.get("value")=='1'){
+                    document.getElementById('idQue').disabled = false;
+                    document.getElementById('question').disabled = false;
+                    dijit.byId('meaning').set('disabled', false);
+				}
+                if(this.get("value")=='2'){
+                    document.getElementById('idQue').disabled = false;
+                    document.getElementById('question').disabled = false;
+                    dijit.byId('meaning').set('disabled', false);
+                }
+                if(this.get("value")=='3'){
+                    document.getElementById('idQue').disabled = false;
+                    document.getElementById('question').disabled = true;
+                    dijit.byId('meaning').set('disabled', true);
+                }
+            })
+        })
+	</script>
+<div th:if="${errorMessage!=null}"
+	 style="color:red;font-style:italic" th:utext="${errorMessage}">..</div>
+	<div class="form_cont igm">
+<form  method="POST">
+	<div class="edit">
+		<center>
+	<label  for="target">Выберите действие:</label>
+			<div id="target"></div>
+		</center>
+
+	<br>
+
+		<center>
+	<label for="idQue">Ид вопроса:</label>
+	<input  type="text" name="idQue" id="idQue" />
+		</center>
+		<center>
+	<label for="question">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspВопрос:</label>
+	<input  type="text" name="question" id="question"/>
+			<br>
+			<center>
+				<label for="meaning">Смысл вопроса:</label>
+				<select  name="meaning" id="meaning" data-dojo-type="dijit/form/Select">
+					<option value="0">Не измененный</option>
+					<option value="1">Измененный</option>
+				</select>
+			</center>
+			<br>
+	<button type="submit" data-dojo-type="dijit/form/Button" value="Отправить" th:text="Отправить"/>
+		</center>
+	</div>
+
+</form>
+	</div>
+<div class="form_cont">
+<table border="1" id="question-table">
+	<tr>
+		<th>Ид</th>
+		<th><center>Вопрос</center></th>
+		<th><center>Смысл(0 не изм,1 изм.)</center></th>
+	</tr>
+	<tr th:each="questionInfo : ${allQuestion}">
+		<td th:utext="${questionInfo.id}"></td>
+		<td th:utext="${questionInfo.question}"></td>
+		<td align="center" th:utext="${questionInfo.meaning}"></td>
+</table>
+</div>
+</div>
+
+</body>
+</html>
