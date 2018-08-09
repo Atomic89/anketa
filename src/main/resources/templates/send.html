@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <!--<script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"-->
+            <!--data-dojo-config="async: true"></script>-->
+    <link rel="stylesheet" href="/resources/dijit/themes/claro/claro.css" >
+    <script> dojoConfig = {parseOnLoad: true}</script>
+    <script src='/resources/dojo/dojo.js'></script>
+
+    <link rel="stylesheet" href="resources/css/style_send.css">
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+    <script src="resources/js/bootstrap.min.js"></script>
+
+</head>
+<body class="claro">
+    <div class="content">
+<script>
+
+    // dojo.require("dijit.form.Button");
+    dojo.require("dijit.form.TextBox");
+    dojo.require("dijit.form.CheckBox");
+    dojo.require("dijit.form.DateTextBox");
+</script>
+ <div class="form_cont igm">
+    <form action="/send" id="myform" method="post" >
+        
+        <div class="edit">
+        <label for="selectDepartment">Выберите отдел:</label>
+        <select name="selectDepartment" id="selectDepartment" data-dojo-type="dijit/form/Select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        </div>
+        
+        <div class="edit">
+        <label for="dateFrom">Результаты от: </label>
+        <input type="text" name="dateFrom" id="dateFrom" th:value="*{dateFrom}"
+               data-dojo-type="dijit/form/DateTextBox"
+               required="true" />
+        </div>
+
+         <div class="edit">
+        <label for="dateTo">Результаты до:</label>
+        <input type="text" name="dateTo" id="dateTo" th:value="*{dateTo}"
+               data-dojo-type="dijit/form/DateTextBox"
+               required="true" />
+        <br>
+        <button type="submit" data-dojo-type="dijit/form/Button" id="submitButton">Отправить</button>
+        </div>
+        <label th:if="*{dateFrom!=null}" th:text="'Выбранная дата от:' + *{dateFrom} + ' до:' + *{dateTo} + ' Отдел номер:' + *{selectdepartment}"  id="infoLabel" ></label>
+        </form>
+    </div>
+        <script>
+            // if(dijit.byId('dateFrom').innerHTML > dijit.byId('dateTo').innerHTML){
+            //     alert("Дата ежжик");
+            // }
+            dojo.ready(function(){
+            var dateFrom = dijit.byId("dateFrom");
+            var dateTo = dijit.byId("dateTo");
+            if(dateFrom>dateTo){
+                alert("Дата начала больше даты окончания");
+            }
+
+            });
+
+        </script>
+        <div class="form_cont">
+
+        <div th:object="${allQuestion}">
+        <table border="1" id="question-table">
+            <tr>
+               <th class="number">№</th>
+                <th class="question">Вопрос</th>
+                <th class="answer">Ср. знач</th>
+            </tr>
+
+            <tr th:each="accountInfo : ${allQuestion}" >
+                <td th:utext="${accountInfo.id}"></td>
+                <td th:utext="${accountInfo.question}"></td>
+                <td ><center> <label th:utext="${accountInfo.average}"></label></center></td>
+            </tr>
+
+        </table>
+
+        <table border="1" id="tableigm" class="tableigm">
+
+                <tr  >
+                    <td class="result">Результаты</td>
+                    <td><center> <label th:each="resultquestion:${resultQuestion}" th:text="${resultquestion.sumResult}"></label></center></td>
+                </tr>
+
+        </table>
+            <br>
+            <ul>
+                <li>1 - Абсолютно не согласен;</li>
+                <li>2 - В чем-то не согласен;</li>
+                <li>3 - Затрудняюсь ответить;</li>
+                <li>4 - Согласен до некоторой степени;</li>
+                <li>5 - полностью согласен;</li>
+            </ul>
+        </div>
+        <br>
+        <script>
+            var table = dojo.byId('question-table');
+            var elem = table.getElementsByTagName('label');
+            for (var z = 0; z < elem.length; z++) {
+                var elema = elem[z];
+
+                if(z==0||z==1||z==3||z==4||z==5||z==7||z==9||z==12||z==13) {
+                    if (elema.innerHTML <= 2)
+                        elema.style.backgroundColor = '#FD6D6D';
+                    if (elema.innerHTML <= 3 && elema.innerHTML > 2)
+                        elema.style.backgroundColor = '#ff9310';
+                    if (elema.innerHTML <= 4 && elema.innerHTML > 3)
+                        elema.style.backgroundColor = '#ffff60';
+                    if (elema.innerHTML <= 5 && elema.innerHTML > 4)
+                        elema.style.backgroundColor = '#48f000';
+                }
+                else{
+                    if (elema.innerHTML <= 2)
+                        elema.style.backgroundColor = '#48f000';
+                    if (elema.innerHTML <= 3 && elema.innerHTML > 2)
+                        elema.style.backgroundColor = '#ffff60';
+                    if (elema.innerHTML <= 4 && elema.innerHTML > 3)
+                        elema.style.backgroundColor = '#ff9310';
+                    if (elema.innerHTML <= 5 && elema.innerHTML > 4)
+                        elema.style.backgroundColor = '#FD6D6D';
+                }
+            }
+            var second_table = dojo.byId('tableigm');
+            var element = second_table.getElementsByTagName('label');
+            for (var i = 0; i < element.length; i++) {
+                var localelem = element[i];
+
+                if(localelem.innerHTML >= 15 && localelem.innerHTML <=30)
+                    localelem.style.backgroundColor='#FD6D6D';
+                if(localelem.innerHTML > 30 && localelem.innerHTML <=45)
+                    localelem.style.backgroundColor='#ff9310';
+                if(localelem.innerHTML > 45 && localelem.innerHTML <=60)
+                    localelem.style.backgroundColor='#ffff60';
+                if(localelem.innerHTML > 60 && localelem.innerHTML <=75)
+                    localelem.style.backgroundColor='#48f000';
+                localelem.innerHTML+="&nbsp&nbsp";
+            }
+
+        </script>
+
+    </form>
+</div>
+</div>
+</body>
+</html>
