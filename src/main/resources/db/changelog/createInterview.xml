@@ -17,6 +17,9 @@
             </column>
             <column name="link" type="number(10,0)">
             </column>
+            <column name="interview_condition" type="float">
+
+            </column>
             <column name="summary" type="number(10,0)">
             </column>
         </createTable>

@@ -10,7 +10,7 @@ import java.sql.*;
 public class QuestionMapper implements RowMapper<QuestionInfo> {
 
     public static final String BASE_SQL
-            = "Select ba.Id, ba.Question, ba.Meaning From Questions ba Order By ba.Id ";
+            = "Select ba.Id, ba.Question, ba.Meaning From Questions ba Where ba.Id_questionnaire=1 Order By ba.Id ";
 
     @Override
     public QuestionInfo mapRow(ResultSet rs, int rowNum) throws SQLException {

@@ -4,79 +4,284 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
 <changeSet author="igm" id="7" >
     <insert tableName="questions">
+        <column name="id_questionnaire">1</column>
         <column name="id">1</column>
         <column name="question">Я готов приложить усилия, даже превышающие общепринятые ожидания чтобы моя компания преуспевала</column>
         <column name="meaning">0</column>
     </insert>
     <insert tableName="questions">
+        <column name="id_questionnaire">1</column>
         <column name="id">2</column>
         <column name="question">Я всегда говорю своим друзьям, что работаю в великолепной компании</column>
         <column name="meaning">0</column>
     </insert>
     <insert tableName="questions">
+        <column name="id_questionnaire">1</column>
         <column name="id">3</column>
         <column name="question">Я не испытываю никакой привязанности по отношению к этой компании</column>
         <column name="meaning">1</column>
     </insert>
     <insert tableName="questions">
+        <column name="id_questionnaire">1</column>
         <column name="id">4</column>
         <column name="question">Я соглашусь практически с любым назначением, лишь бы остаться работать в этой компании</column>
         <column name="meaning">0</column>
     </insert>
     <insert tableName="questions">
+        <column name="id_questionnaire">1</column>
         <column name="id">5</column>
         <column name="question">Я считаю, что мои личные ценности и ценности, принятые в моей компании, очень близки</column>
         <column name="meaning">0</column>
     </insert>
     <insert tableName="questions">
+        <column name="id_questionnaire">1</column>
         <column name="id">6</column>
         <column name="question">Я с гордостью заявляю другим, что являюсь частью этой компании</column>
         <column name="meaning">0</column>
     </insert>
     <insert tableName="questions">
+        <column name="id_questionnaire">1</column>
         <column name="id">7</column>
         <column name="question">С таким же успехом я работал бы в любой другой компании, если бы можно было выполнять аналогичную работу</column>
         <column name="meaning">1</column>
     </insert>
     <insert tableName="questions">
+        <column name="id_questionnaire">1</column>
         <column name="id">8</column>
         <column name="question">Моя компания действительно вдохновляет меня работать как можно лучше</column>
         <column name="meaning">0</column>
     </insert>
     <insert tableName="questions">
+        <column name="id_questionnaire">1</column>
         <column name="id">9</column>
         <column name="question">Требуются очень незначительные изменения в моих личных обстоятельствах, чтобы я оставил работу в этой компании</column>
         <column name="meaning">1</column>
     </insert>
     <insert tableName="questions">
+        <column name="id_questionnaire">1</column>
         <column name="id">10</column>
         <column name="question">Я очень рад, что выбрал именно эту компанию, когда искал работу и рассматривал другие предложения</column>
         <column name="meaning">0</column>
     </insert>
     <insert tableName="questions">
+        <column name="id_questionnaire">1</column>
         <column name="id">11</column>
         <column name="question">Не имеет смысла надолго задерживаться в этой компании</column>
         <column name="meaning">1</column>
     </insert>
     <insert tableName="questions">
+        <column name="id_questionnaire">1</column>
         <column name="id">12</column>
         <column name="question">Во многих случаях я не согласен с основными направлениями политики компании по отношению к своим сотрудникам</column>
         <column name="meaning">1</column>
     </insert>
     <insert tableName="questions">
+        <column name="id_questionnaire">1</column>
         <column name="id">13</column>
         <column name="question">Мне действительно небезразлична судьба компании</column>
         <column name="meaning">0</column>
     </insert>
     <insert tableName="questions">
+        <column name="id_questionnaire">1</column>
         <column name="id">14</column>
         <column name="question">Для меня это самая лучшая из компаний, где я мог бы работать</column>
         <column name="meaning">0</column>
     </insert>
     <insert tableName="questions">
+        <column name="id_questionnaire">1</column>
         <column name="id">15</column>
         <column name="question">Решение начать работать в этой компании было, безусловно, ошибкой с моей стороны</column>
         <column name="meaning">1</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">2</column>
+        <column name="id">1</column>
+        <column name="question">Содержание работы (интересные, значимые для Вас задачи,  проекты и др.)</column>
+    </insert>
+    <insert tableName="questions">
+    <column name="id_questionnaire">2</column>
+    <column name="id">2</column>
+    <column name="question">Уровень оплаты труда (зарплата, премии)</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">2</column>
+        <column name="id">3</column>
+        <column name="question">Возможность больше зарабатывать от приложенных усилий </column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">2</column>
+        <column name="id">4</column>
+        <column name="question">Признание руководством и коллегами Ваших профессиональных и трудовых заслуг (Доска почета, грамота и т.п.) </column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">2</column>
+        <column name="id">5</column>
+        <column name="question">Условия работы </column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">2</column>
+        <column name="id">6</column>
+        <column name="question">Перспектива построения карьеры</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">2</column>
+        <column name="id">7</column>
+        <column name="question">Повышение профессионализма </column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">2</column>
+        <column name="id">8</column>
+        <column name="question">Доброжелательное отношение руководителей к подчиненным </column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">2</column>
+        <column name="id">9</column>
+        <column name="question">Атмосфера в команде, хороший, дружный коллектив</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">2</column>
+        <column name="id">10</column>
+        <column name="question">Иные</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">3</column>
+        <column name="id">1</column>
+        <column name="question">Четко ли распределены функции и задачи в подразделении?</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">3</column>
+        <column name="id">2</column>
+        <column name="question">Понимаете ли Вы что должны делать на своей работе, чтобы способствовать достижению целей компании?</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">3</column>
+        <column name="id">3</column>
+        <column name="question">Устраивает ли Вас обеспечение рабочего места всем необходимым?</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">3</column>
+        <column name="id">4</column>
+        <column name="question">Устраивает ли Вас содержание самой работы?</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">3</column>
+        <column name="id">5</column>
+        <column name="question">Получаете ли Вы достаточно информации для решения поставленных задач?</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">3</column>
+        <column name="id">6</column>
+        <column name="question">Знаете ли Вы к кому можно обратиться для решения ваших проблем, кроме непосредственного руководителя?</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">3</column>
+        <column name="id">7</column>
+        <column name="question">Ощущаете ли Вы помощь и поддержку в работе со стороны руководителя подразделения?</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">3</column>
+        <column name="id">8</column>
+        <column name="question">Рассматриваются ли руководителем подразделения Ваши предложения по усовершенствованию работы?</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">3</column>
+        <column name="id">9</column>
+        <column name="question">Если вы имеете дополнительный источник дохода в виде подработки, оцените насколько он значим для Вас? </column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">3</column>
+        <column name="id">10</column>
+        <column name="question">Как много времени вы тратите на него? Указать в часах в неделю</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">3</column>
+        <column name="id">11</column>
+        <column name="question">Понимаете ли Вы принцип начисления дополнительных бонусов к заработной плате и что нужно делать для их получения?</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">3</column>
+        <column name="id">12</column>
+        <column name="question">Прикладываете ли Вы усилия для достижения больших результатов и получения дополнительных бонусов?</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">3</column>
+        <column name="id">13</column>
+        <column name="question">Учитываются ли Ваши усилия и достижения при начислении бонусов руководителем направления?</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">3</column>
+        <column name="id">14</column>
+        <column name="question">Имеете ли Вы возможность продвижения по карьерной лестнице?</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">3</column>
+        <column name="id">15</column>
+        <column name="question">Имеете ли Вы возможность повышения своей квалификации?</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">3</column>
+        <column name="id">16</column>
+        <column name="question">Устраивают ли Вас взаимоотношения с коллегами по работе?</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">3</column>
+        <column name="id">17</column>
+        <column name="question">Устраивает ли вас состояние вспомогательных помещений (кухня, душ…)?</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">4</column>
+        <column name="id">1</column>
+        <column name="question">Дает ли уверенность в завтрашнем дне работа в компании? </column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">4</column>
+        <column name="id">2</column>
+        <column name="question">Есть ли у Вас «командный дух»? Готовы ли Вы без особых просьб помочь коллеге при решении задачи? </column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">4</column>
+        <column name="id">3</column>
+        <column name="question">Останетесь ли вы после работы помочь коллеге, который не успевает завершить задачу?</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">4</column>
+        <column name="id">4</column>
+        <column name="question">Готовы ли вы участвовать в спортивных соревнованиях, проводимых компанией? </column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">4</column>
+        <column name="id">5</column>
+        <column name="question">Готовы ли вы принимать участие в соревнованиях между командами?</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">5</column>
+        <column name="id">1</column>
+        <column name="question">Я удовлетворен (а) работой в компании и не хотел (а) бы менять место работы</column>
+    </insert>
+    <insert tableName="questions">
+    <column name="id_questionnaire">5</column>
+    <column name="id">2</column>
+    <column name="question">Я удовлетворен (а) работой в компании, но хотел (а) бы сменить место работы по объективным обстоятельствам</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">5</column>
+        <column name="id">3</column>
+        <column name="question">Я не удовлетворен (а) работой в компании, но не хотел (а) бы менять место работы</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">5</column>
+        <column name="id">4</column>
+        <column name="question">Я не удовлетворен (а) работой в компании и хотел (а) бы сменить место работы</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">5</column>
+        <column name="id">5</column>
+        <column name="question">Я не задумывался (не задумывалась) над этим вопросом</column>
+    </insert>
+    <insert tableName="questions">
+        <column name="id_questionnaire">6</column>
+        <column name="id">1</column>
+        <column name="question">Если у Вас есть желание высказаться, напишите, пожалуйста, Ваши пожелания по улучшению бизнеса нашей компании (Вы можете пропустить ответ на этот вопрос)</column>
     </insert>
 </changeSet>
 </databaseChangeLog>

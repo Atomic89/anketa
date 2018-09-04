@@ -21,14 +21,19 @@ public class DataBaseDAO extends JdbcDaoSupport {
     }
 
     /**
-     * Получение всех вопрос из бд
+     * Получение вопрос для оценки лояльности из бд
      * @return список
      * See {@link QuestionInfo}
      */
     //Получение вопросов
-    public List<QuestionInfo> getQuestions() {
-        // Select ba.Id, ba.Question, ba.Meaning From Questions ba Order By ba.Id
+    public List<QuestionInfo> getQuestionsLoyalty() {
+        // Select ba.Id, ba.Question, ba.Meaning From Questions ba Where ba.Id_questionnaire=1 Order By ba.Id
         return this.getJdbcTemplate().query(QuestionMapper.BASE_SQL, new Object[] {}, new QuestionMapper());
+    }
+    public List<QuestionInfo> getQuestionsGradation() {
+        //
+       final String BASE_SQL = "Select ba.Id, ba.Question, ba.Meaning From Questions ba Where ba.Id_questionnaire = 2 Order By ba.Id ";
+        return this.getJdbcTemplate().query(BASE_SQL, new Object[] {}, new QuestionMapper());
     }
 
     /**
@@ -105,7 +110,7 @@ public class DataBaseDAO extends JdbcDaoSupport {
      * @param questionInfoList список вопросов, чтобы проверять смысл вопроса реверс он или нет
      */
     public void WriteResultTest(String allResult, Long idDepartment,List<QuestionInfo> questionInfoList) throws ParseException {
-        String saveSql = "insert into Result_Test(Id,Id_Question,Answer)" + " values (?,?,?)";
+        String saveSql = "insert into Result_Test(Id,Id_Questionnaire,Id_Question,Answer)" + " values (?,?,?,?)";
         String saveSqlSecond = "insert into Interview(Id_Interview,Date_Interview,Id_Department,Link,Summary)" + " values (?,?,?,?,?)";
         UUID uuid = UUID.randomUUID();
         String randomUUIDString = uuid.toString();
@@ -138,7 +143,7 @@ public class DataBaseDAO extends JdbcDaoSupport {
 
         this.getJdbcTemplate().update(saveSqlSecond,randomUUIDString,sqlDate,idDepartment,13,sumResult);
         for(int i = 0;i < question_result.length;i++){
-            this.getJdbcTemplate().update(saveSql,randomUUIDString,i + 1,question_result[i]);
+            this.getJdbcTemplate().update(saveSql,randomUUIDString,1,i + 1,question_result[i]);// UUID, идентификатор опроса,идентификатор вопроса,ответ
         }
     }
 

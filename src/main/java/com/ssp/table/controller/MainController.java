@@ -93,7 +93,7 @@ public class MainController {
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public String method(@PathVariable("id") String id, Model model) {
 
-        List<QuestionInfo> list = dataBaseDAO.getQuestions();
+        List<QuestionInfo> list = dataBaseDAO.getQuestionsLoyalty();
         model.addAttribute("allQuestion",list);
 
         if(id.equals(firstURL)){
@@ -118,7 +118,7 @@ public class MainController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addQuestiontToDBget(Model model ) {
 
-        List<QuestionInfo> list = dataBaseDAO.getQuestions();
+        List<QuestionInfo> list = dataBaseDAO.getQuestionsLoyalty();
         model.addAttribute("allQuestion",list);
 
         return "form";
@@ -151,7 +151,7 @@ public class MainController {
             dataBaseDAO.DeleteDBQuestion(Long.parseLong(idQue));
         }
         System.out.println(change + " " + idQue + " " + question);
-        List<QuestionInfo> list = dataBaseDAO.getQuestions();
+        List<QuestionInfo> list = dataBaseDAO.getQuestionsLoyalty();
         model.addAttribute("allQuestion",list);
 
         return "form";
@@ -161,7 +161,7 @@ public class MainController {
      */
     @RequestMapping(value = "/send", method = RequestMethod.GET)
     public String resendDataDB(Model model) {
-        List<QuestionInfo> list = dataBaseDAO.getQuestions();
+        List<QuestionInfo> list = dataBaseDAO.getQuestionsLoyalty();
         model.addAttribute("allQuestion",list);
         model.addAttribute("igm","3");
 
@@ -180,7 +180,7 @@ public class MainController {
                              @RequestParam("dateFrom") String dateFrom,
                              @RequestParam("dateTo") String dateTo) throws ParseException {
         List<QuestionResultInfo> listResult = dataBaseDAO.getQuestionResult(selectDepartment,dateFrom,dateTo);
-        List<QuestionInfo> listQuestion = dataBaseDAO.getQuestions();
+        List<QuestionInfo> listQuestion = dataBaseDAO.getQuestionsLoyalty();
         Map<Long, Double> avGinfos = dataBaseDAO.getAVGResult(selectDepartment,dateFrom,dateTo);
         System.out.println("Параметры от админа:"+selectDepartment + " " + dateFrom + " " + dateTo);
 
@@ -211,11 +211,12 @@ public class MainController {
      *
      * @param allResult все ответы на вопросы в формате [x1,x2...]
      * @param department отдел в котором было тестирование
+     * See WriteResultTest {@link DataBaseDAO}
      */
     @RequestMapping(value = "/table", method = RequestMethod.POST)
     public String tableDBSand(@RequestParam("variable") String allResult,
                               @RequestParam("department") String department) throws ParseException {
-        List<QuestionInfo> listQuestion = dataBaseDAO.getQuestions();
+        List<QuestionInfo> listQuestion = dataBaseDAO.getQuestionsLoyalty();
         dataBaseDAO.WriteResultTest(allResult,Long.parseLong(department),listQuestion);
         System.out.println(allResult + " " + department);
         return "table1";
